@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Nitta Pradeep</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --text: #2c3e50;
+            --background: #f9f9f9;
+            --card-bg: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--dark);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 4px solid var(--light);
+        }
+        
+        .timeline-date {
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Nitta Pradeep</div>
+            <div class="tagline">Web Developer & Student</div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about" class="active">About</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            
+            <div class="card">
+                <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <div style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                            <i class="fas fa-user" style="font-size: 5rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div style="flex: 2; min-width: 300px;">
+                        <h3>Nitta Pradeep</h3>
+                        <p>Computer Science Student & Web Developer</p>
+                        <p>Hello! I'm a passionate computer science student currently pursuing my B.Tech in Computer Science Engineering at IIIT Sricity. I'm in my 3rd year and have a strong interest in web development, software engineering, and emerging technologies.</p>
+                        <p>When I'm not studying or coding, you can find me exploring new technologies, participating in coding competitions, or contributing to open-source projects.</p>
+                        <div style="margin-top: 1.5rem;">
+                            <p><i class="fas fa-envelope"></i> Email: pradeepnitta@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Location: Hyderabad, Telangana, India</p>
+                            <p><i class="fas fa-phone"></i> Contact: 630968****</p>
+                            <p><i class="fas fa-graduation-cap"></i> Education: 3rd Year B.Tech CSE, IIIT Sricity</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title">Education</h3>
+            
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2022 - Present</div>
+                            <h3>B.Tech in Computer Science Engineering</h3>
+                            <p>IIIT Sricity</p>
+                            <p>Currently in 3rd year, focusing on web technologies, algorithms, and software development.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2020 - 2022</div>
+                            <h3>Intermediate Education</h3>
+                            <p>Narayana Junior College, Hyderabad</p>
+                            <p>Completed with focus on Mathematics, Physics, and Chemistry.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2020</div>
+                            <h3>Secondary School Education</h3>
+                            <p>SR Digi School, Hyderabad</p>
+                            <p>Completed with distinction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="section-title">Skills & Interests</h3>
+            
+            <div class="card">
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <h3>Technical Skills</h3>
+                        <ul style="list-style-type: none;">
+                            <li><i class="fas fa-code"></i> Web Development (HTML, CSS, JavaScript)</li>
+                            <li><i class="fas fa-database"></i> Database Management</li>
+                            <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
+                            <li><i class="fas fa-server"></i> Backend Development</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <h3>Interests</h3>
+                        <ul style="list-style-type: none;">
+                            <li><i class="fas fa-laptop-code"></i> Programming</li>
+                            <li><i class="fas fa-book"></i> Reading Tech Blogs</li>
+                            <li><i class="fas fa-gamepad"></i> Gaming</li>
+                            <li><i class="fas fa-music"></i> Music</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h3>Connect with Me</h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2023 Nitta Pradeep. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

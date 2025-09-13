@@ -1,0 +1,85 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main>
+    <div class="container">
+        <section class="hero">
+            <div class="card" style="text-align: center;">
+                <h2>Welcome to My Portfolio</h2>
+                <p>I'm a passionate web developer and designer with expertise in creating beautiful, functional websites and applications.</p>
+                <a href="/projects" class="btn">View My Work</a>
+            </div>
+        </section>
+
+        <section class="highlights">
+            <h2 class="section-title">Featured Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <p>HTML, CSS, JavaScript, React, Vue.js</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <p>Node.js, Express, MongoDB, PHP</p>
+                </div>
+                <div class="skill-category">
+                    <h3>UI/UX Design</h3>
+                    <p>Figma, Adobe XD, User Research, Prototyping</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="recent-projects">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Website</h3>
+                        <p>A fully responsive e-commerce platform with product filtering and cart functionality.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>A drag-and-drop task management application with user authentication.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Analytics Dashboard</h3>
+                        <p>Data visualization dashboard with interactive charts and real-time updates.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">D3.js</span>
+                            <span class="project-tag">API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/projects" class="btn">View All Projects</a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
