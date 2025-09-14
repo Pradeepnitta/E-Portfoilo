@@ -1,11 +1,11 @@
 {
-  "name": "e-portfolio",
+  "name": "portfolio-website",
   "version": "1.0.0",
-  "description": "Professional E-Portfolio",
-  "main": "server.js",
+  "description": "Portfolio website for Nitta Pradeep",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "dependencies": {
     "ejs": "^3.1.9",

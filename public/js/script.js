@@ -1,62 +1,51 @@
-// Simple JavaScript for interactive elements
+// Contact form handling
 document.addEventListener('DOMContentLoaded', function() {
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      if(targetId.startsWith('#')) {
-        const targetElement = document.querySelector(targetId);
-        if(targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        }
-      } else {
-        window.location.href = this.href;
-      }
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // In a real application, you would send the form data to a server here
+            // For this example, we'll just show a success message
+            alert(`Thank you for your message, ${name}! I will get back to you soon.`);
+            contactForm.reset();
+        });
+    }
+    
+    // Add smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
-  });
-
-  // Form submission handling
-  const contactForm = document.getElementById('contactForm');
-  if(contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Simple form validation
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      
-      if(name && email && message) {
-        // In a real application, you would send this data to a server
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
-      } else {
-        alert('Please fill in all fields.');
-      }
-    });
-  }
-
-  // Animate skill bars when they come into view
-  const skillBars = document.querySelectorAll('.skill-level');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        const width = entry.target.getAttribute('data-level');
-        entry.target.style.width = width;
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  
-  skillBars.forEach(bar => {
-    bar.style.width = '0';
-    bar.setAttribute('data-level', bar.style.width);
-    observer.observe(bar);
-  });
 });

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= name %> - Resume</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 20px;
+        }
+        
+        .name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+        
+        /* Section Styles */
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2c3e50;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        
+        /* Education Styles */
+        .education-item, .experience-item {
+            margin-bottom: 15px;
+        }
+        
+        .institution {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .degree {
+            font-style: italic;
+        }
+        
+        .date {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        /* Skills Styles */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            background-color: #ecf0f1;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+            border-radius: 3px;
+        }
+        
+        /* Project Styles */
+        .project {
+            margin-bottom: 15px;
+        }
+        
+        .project-title {
+            font-weight: bold;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .resume-container {
+                padding: 20px;
+            }
+            
+            .name {
+                font-size: 28px;
+            }
+            
+            .skills-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="name"><%= name %></h1>
+            <div class="contact-info">
+                <p><%= contact.username %> | <%= contact.email %> | <%= contact.phone %></p>
+            </div>
+        </header>
+        
+        <!-- Professional Summary -->
+        <section class="section">
+            <h2 class="section-title">PROFESSIONAL SUMMARY</h2>
+            <p><%= professionalSummary %></p>
+        </section>
+        
+        <!-- Education -->
+        <section class="section">
+            <h2 class="section-title">EDUCATION</h2>
+            
+            <% education.forEach(function(edu) { %>
+                <div class="education-item">
+                    <h3 class="institution"><%= edu.institution %></h3>
+                    <p class="degree"><%= edu.degree %></p>
+                    <p class="date">Expected Graduation: <%= edu.graduationDate %> | <%= edu.gpaType %>: <%= edu.gpa %></p>
+                </div>
+            <% }); %>
+        </section>
+        
+        <!-- Work Experience -->
+        <section class="section">
+            <h2 class="section-title">WORK EXPERIENCE</h2>
+            
+            <% workExperience.forEach(function(exp) { %>
+                <div class="experience-item">
+                    <h3 class="institution"><%= exp.position %>, <%= exp.company %> - [<%= exp.duration %>]</h3>
+                    <ul>
+                        <% exp.responsibilities.forEach(function(resp) { %>
+                            <li><%= resp %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+            <% }); %>
+        </section>
+        
+        <!-- Skills -->
+        <section class="section">
+            <h2 class="section-title">SKILLS</h2>
+            <div class="skills-container">
+                <% for (const [category, skills] of Object.entries(skills)) { %>
+                    <div class="skill-category">
+                        <h3><%= category %>:</h3>
+                        <ul class="skill-list">
+                            <% skills.forEach(function(skill) { %>
+                                <li><%= skill %></li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+        
+        <!-- Certifications -->
+        <section class="section">
+            <h2 class="section-title">CERTIFICATIONS</h2>
+            <p><%= certifications %></p>
+        </section>
+        
+        <!-- Co-curricular Activities -->
+        <section class="section">
+            <h2 class="section-title">CO-CURRICULAR ACTIVITIES</h2>
+            <p><%= coCurricular %></p>
+        </section>
+        
+        <!-- Academic Projects -->
+        <section class="section">
+            <h2 class="section-title">ACADEMIC PROJECTS</h2>
+            
+            <% projects.forEach(function(project) { %>
+                <div class="project">
+                    <h3 class="project-title"><%= project.name %></h3>
+                    <p><%= project.description %></p>
+                    <p><strong>Project Repository:</strong> <%= project.repository %></p>
+                </div>
+            <% }); %>
+        </section>
+        
+        <!-- Languages -->
+        <section class="section">
+            <h2 class="section-title">LANGUAGES</h2>
+            <p><strong>Proficient:</strong> <%= languages.proficient.join(', ') %></p>
+            <p><strong>Basic Knowledge:</strong> <%= languages.basic.join(', ') %></p>
+        </section>
+        
+        <!-- Hobbies -->
+        <section class="section">
+            <h2 class="section-title">HOBBIES</h2>
+            <p><%= hobbies.join(', ') %></p>
+        </section>
+    </div>
+</body>
+</html>
